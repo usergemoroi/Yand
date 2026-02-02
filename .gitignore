@@ -11,9 +11,11 @@
 
 # Generated files
 bin/
+!restored_code/dex2/bin/
 gen/
 out/
 build/
+!restored_code/native/build/
 .gradle/
 .idea/
 *.iml
