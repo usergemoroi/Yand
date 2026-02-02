@@ -1,0 +1,36 @@
+# Build artifacts
+*.o
+*.so
+*.a
+*.jar
+*.dex
+*.class
+*.apk
+*.ap_
+*.aab
+
+# Generated files
+bin/
+gen/
+out/
+build/
+.gradle/
+.idea/
+*.iml
+local.properties
+
+# Temporary files
+*.log
+*.tmp
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Source archive
+"обход спижен.zip"
+source_files/
+
+# Decompiler output
+/tmp/
+*.jar.src/
