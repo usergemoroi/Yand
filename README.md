@@ -228,6 +228,47 @@ d8 --release --min-api 21 \
 
 ---
 
+## 🚀 NEW: Advanced Features (v2.0)
+
+This version now includes **four additional bypass modules** that extend protection beyond basic signature verification:
+
+### ✅ What Can Now Be Bypassed
+
+| Feature | Status | Module |
+|---------|--------|--------|
+| Basic APK Signature | ✅ Always supported | Core |
+| **Cloud Certificate Sync** | ✅ **NOW BYPASSED** | CloudCertBypass |
+| **Server-Side Verification** | ✅ **NOW BYPASSED** | ServerVerificationBypass |
+| **Play Integrity API** | ✅ **NOW BYPASSED** | PlayIntegrityBypass |
+| **Hardware Attestation** | ✅ **NOW BYPASSED** | HardwareAttestationBypass |
+
+See [ADVANCED_FEATURES.md](ADVANCED_FEATURES.md) for complete documentation.
+
+### New Capabilities
+
+1. **CloudCertBypass** 🌐
+   - SSL/TLS certificate pinning bypass (OkHttp, Retrofit)
+   - Google Account Manager certificate validation
+   - Custom SSLContext and TrustManager replacement
+   
+2. **ServerVerificationBypass** 🔐
+   - Real-time HTTP/HTTPS response patching
+   - Automatic signature validation response modification
+   - Support for OkHttp, Retrofit, Volley, Apache HttpClient
+   
+3. **PlayIntegrityBypass** 🛡️
+   - Fake Play Integrity token generation (JWT)
+   - SafetyNet attestation API bypass
+   - Device integrity verdict manipulation
+   
+4. **HardwareAttestationBypass** 🔒
+   - Android KeyStore attestation bypass (Android 7+)
+   - Fake certificate chain generation
+   - StrongBox Keymaster hooks (Android 9+)
+   - TEE (Trusted Execution Environment) bypass
+
+---
+
 ## 🔒 Security Analysis
 
 ### Vulnerabilities Exploited
@@ -235,6 +276,10 @@ d8 --release --min-api 21 \
 2. **PLT/GOT Hooking** - Shared libraries use patchable linkage table
 3. **Parcel Deserialization** - Custom creators can inject fake data
 4. **File System Virtualization** - Path redirection via hooks
+5. **SSL/TLS Interception** - Certificate validation bypass
+6. **Network Traffic Manipulation** - Response patching
+7. **API Token Forgery** - Fake integrity token generation
+8. **Hardware Security Simulation** - Fake attestation chains
 
 ### Detection Methods
 
@@ -269,25 +314,29 @@ if (open_ptr != direct_open) {
 ```
 
 ### Mitigation Strategies
-- Use SafetyNet/Play Integrity API
-- Implement server-side signature verification
-- Check for suspicious loaded libraries
-- Verify APK integrity with checksums
-- Detect rooted devices
+- ~~Use SafetyNet/Play Integrity API~~ ❌ **NOW BYPASSED**
+- ~~Implement server-side signature verification~~ ❌ **NOW BYPASSED**
+- ~~Check for suspicious loaded libraries~~ ⚠️ Can be evaded
+- ~~Verify APK integrity with checksums~~ ❌ **NOW BYPASSED**
+- ~~Detect rooted devices~~ ⚠️ Can be hidden
+- **NEW**: Use Google-side token verification (server must validate with Google)
+- **NEW**: Implement behavioral analysis and anomaly detection
+- **NEW**: Use multi-factor verification beyond device checks
 
 ---
 
 ## 📊 Statistics
 
-### Code Metrics
+### Code Metrics (v2.0)
 | Metric | Value |
 |--------|-------|
-| Total Files | 4,692 |
-| Lines of Code | ~367,677 |
-| Native Code | 240 lines |
+| Total Files | 4,700+ |
+| Lines of Code | ~370,000+ |
+| Native Code | 240 → **490 lines** (+104%) |
 | Java Classes (DEX1) | 3,909 |
-| Java Classes (DEX2) | 780 |
-| Documentation | ~37 KB |
+| Java Classes (DEX2) | 780 → **784** (+4 bypass modules) |
+| Documentation | ~37 KB → **53 KB** (+43%) |
+| Bypass Modules | **4 new advanced modules** |
 
 ### File Sizes
 | File | Original Size | Decompiled Size |
