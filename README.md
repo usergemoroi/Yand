@@ -24,6 +24,15 @@ This repository contains the complete reverse-engineered source code of an Andro
 - `classes8.dex` - Yandex Mobile Ads SDK (9.8 MB)
 - `classes9.dex` - Signature Killer core (2.3 MB)
 
+### ✨ Built Artifacts (NEW!)
+**All compiled files are available in the `итог/` directory:**
+- **[итог/libSignatureKiller.so](итог/)** - Compiled native library (21 KB)
+- **[итог/classes8.dex](итог/)** - Enhanced Yandex Ads SDK (9.0 MB)
+- **[итог/classes9.dex](итог/)** - Enhanced SignatureKiller core (2.0 MB)
+- **[итог/README.md](итог/README.md)** - Complete usage documentation
+- **[итог/INSTALLATION.md](итог/INSTALLATION.md)** - Installation guide
+- **[итог/TECHNICAL_SPECS.md](итог/TECHNICAL_SPECS.md)** - Technical specifications
+
 ### Restored Code
 - **Native C/C++ code**: 3 files, 240 lines
 - **Java source code**: 4,689 classes, ~367,000 lines
